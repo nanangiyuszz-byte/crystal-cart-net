@@ -30,36 +30,36 @@
   --color-ring: var(--ring);
   --color-neon: var(--neon);
   --color-neon-soft: var(--neon-soft);
-  --font-display: "Orbitron", "Inter", sans-serif;
+  --font-display: "Space Grotesk", "Inter", sans-serif;
 }
 
 :root {
   --radius: 0.875rem;
-  --background: oklch(0.13 0.04 250);
+  --background: oklch(0.16 0.03 250);
   --foreground: oklch(0.97 0.02 200);
-  --card: oklch(0.18 0.05 250 / 35%);
+  --card: oklch(0.20 0.04 250 / 35%);
   --card-foreground: oklch(0.97 0.02 200);
-  --popover: oklch(0.16 0.05 250 / 85%);
+  --popover: oklch(0.18 0.04 250 / 88%);
   --popover-foreground: oklch(0.97 0.02 200);
-  --primary: oklch(0.82 0.16 195);
+  --primary: oklch(0.82 0.14 195);
   --primary-foreground: oklch(0.13 0.04 250);
-  --secondary: oklch(0.25 0.06 250 / 60%);
+  --secondary: oklch(0.25 0.05 250 / 60%);
   --secondary-foreground: oklch(0.97 0.02 200);
   --muted: oklch(0.25 0.05 250 / 50%);
   --muted-foreground: oklch(0.75 0.04 210);
-  --accent: oklch(0.82 0.16 195);
+  --accent: oklch(0.82 0.14 195);
   --accent-foreground: oklch(0.13 0.04 250);
   --destructive: oklch(0.65 0.22 25);
   --destructive-foreground: oklch(0.97 0 0);
-  --border: oklch(0.82 0.16 195 / 25%);
-  --input: oklch(1 0 0 / 8%);
-  --ring: oklch(0.82 0.16 195 / 60%);
-  --neon: oklch(0.82 0.16 195);
-  --neon-soft: oklch(0.82 0.16 195 / 40%);
+  --border: oklch(0.82 0.14 195 / 18%);
+  --input: oklch(1 0 0 / 6%);
+  --ring: oklch(0.82 0.14 195 / 50%);
+  --neon: oklch(0.82 0.14 195);
+  --neon-soft: oklch(0.82 0.14 195 / 40%);
 }
 
 .dark {
-  --background: oklch(0.13 0.04 250);
+  --background: oklch(0.16 0.03 250);
   --foreground: oklch(0.97 0.02 200);
 }
 
@@ -67,57 +67,46 @@
   * { border-color: var(--color-border); }
   html, body { background: transparent; color: var(--color-foreground); }
   body {
+    background-color: #0a1020;
     background-image:
-      linear-gradient(rgba(8, 12, 30, 0.78), rgba(8, 12, 30, 0.88)),
-      url("https://files.catbox.moe/1000046897.jpg");
-    background-size: cover;
-    background-position: center;
+      radial-gradient(ellipse at 50% 0%, rgba(34, 211, 238, 0.10), transparent 60%),
+      radial-gradient(ellipse at 100% 100%, rgba(34, 211, 238, 0.06), transparent 50%),
+      linear-gradient(rgba(34, 211, 238, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(34, 211, 238, 0.06) 1px, transparent 1px);
+    background-size: auto, auto, 44px 44px, 44px 44px;
+    background-position: center, center, center, center;
     background-attachment: fixed;
-    background-repeat: no-repeat;
     min-height: 100vh;
     font-family: "Inter", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
   }
 }
 
 @utility glass {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(18px) saturate(140%);
-  border: 1px solid rgba(34, 211, 238, 0.22);
+  background: rgba(255, 255, 255, 0.035);
+  backdrop-filter: blur(12px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.04) inset,
-    0 8px 32px rgba(0, 0, 0, 0.35),
-    0 0 24px rgba(34, 211, 238, 0.08);
+    0 1px 0 rgba(255, 255, 255, 0.04) inset,
+    0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
 @utility glass-strong {
-  background: rgba(15, 23, 42, 0.65);
-  backdrop-filter: blur(24px) saturate(160%);
-  border: 1px solid rgba(34, 211, 238, 0.3);
+  background: rgba(10, 16, 32, 0.55);
+  backdrop-filter: blur(16px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow:
-    0 8px 40px rgba(0, 0, 0, 0.5),
-    0 0 30px rgba(34, 211, 238, 0.12);
+    0 1px 0 rgba(255, 255, 255, 0.05) inset,
+    0 10px 30px rgba(0, 0, 0, 0.35);
 }
 
 @utility neon-glow {
   box-shadow:
-    0 0 12px rgba(34, 211, 238, 0.5),
-    0 0 28px rgba(34, 211, 238, 0.28);
+    0 0 0 1px rgba(34, 211, 238, 0.35),
+    0 0 18px rgba(34, 211, 238, 0.25);
 }
 
 @utility neon-text {
-  color: oklch(0.92 0.14 195);
-  text-shadow: 0 0 12px rgba(34, 211, 238, 0.6);
-}
-
-@keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 18px rgba(34, 211, 238, 0.4), 0 0 36px rgba(34, 211, 238, 0.15); }
-  50% { box-shadow: 0 0 28px rgba(34, 211, 238, 0.7), 0 0 56px rgba(34, 211, 238, 0.3); }
-}
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-@keyframes float-in {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
+  color: oklch(0.94 0.10 195);
+  text-shadow: 0 0 14px rgba(34, 211, 238, 0.35);
 }
